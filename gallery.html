@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11152b">
+  <title>Gallery · Hello, World!</title>
+  <style>
+    :root { color-scheme: dark; --ink:#f7f6ff; --muted:#b4b7d0; --violet:#b79cff; --cyan:#85efff; }
+    * { box-sizing:border-box; }
+    body { min-height:100vh; margin:0; display:grid; place-items:center; padding:6rem 1.5rem 2rem; color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; background:radial-gradient(ellipse at 18% 20%,#563e91 0,transparent 34%),radial-gradient(ellipse at 85% 80%,#135b76 0,transparent 32%),linear-gradient(135deg,#11152b,#17152f 55%,#101d32); }
+    nav { position:absolute; top:1.5rem; right:clamp(1.25rem,5vw,4rem); display:flex; flex-wrap:wrap; gap:.35rem; }
+    nav a { padding:.65rem .9rem; border:1px solid transparent; border-radius:999px; color:var(--muted); font-size:.9rem; text-decoration:none; transition:.2s; }
+    nav a:hover,nav a:focus-visible { color:var(--ink); border-color:#ffffff35; background:#ffffff12; outline:none; }
+    nav a[aria-current="page"] { color:var(--ink); background:#ffffff15; }
+    main { width:min(100%,900px); padding:clamp(2rem,6vw,4rem); border:1px solid #ffffff25; border-radius:32px; background:linear-gradient(145deg,#ffffff12,#ffffff05); box-shadow:0 30px 100px #05081780,inset 0 1px #ffffff20; backdrop-filter:blur(18px); animation:rise .8s ease both; }
+    .eyebrow { margin:0 0 1.1rem; color:var(--cyan); font-size:.75rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+    h1 { margin:0; font-size:clamp(3rem,9vw,5.75rem); line-height:1; letter-spacing:-.07em; }
+    h1 span { color:transparent; background:linear-gradient(100deg,#fff 10%,var(--violet) 48%,var(--cyan) 90%); background-clip:text; -webkit-background-clip:text; }
+    .message { max-width:580px; margin:1.3rem 0 2rem; color:var(--muted); font-size:1.05rem; line-height:1.75; }
+    .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+    .tile { position:relative; min-height:190px; display:flex; align-items:flex-end; overflow:hidden; padding:1.25rem; border:1px solid #ffffff25; border-radius:20px; isolation:isolate; box-shadow:inset 0 1px #ffffff30; transition:transform .25s ease,border-color .25s ease; }
+    .tile:hover { transform:translateY(-5px); border-color:#ffffff60; }
+    .tile::before { position:absolute; z-index:-1; inset:0; content:""; transition:transform .4s ease; }
+    .tile:hover::before { transform:scale(1.08); }
+    .tile:nth-child(1)::before { background:radial-gradient(circle at 30% 28%,#fff8 0 2px,transparent 3px),radial-gradient(circle at 68% 40%,#fff9 0 2px,transparent 3px),radial-gradient(ellipse at 50% 115%,#47d6ed 0,transparent 54%),linear-gradient(145deg,#29245b,#724bab 55%,#171d48); }
+    .tile:nth-child(2)::before { background:radial-gradient(ellipse at 50% 80%,#ffdc9b 0,transparent 25%),linear-gradient(160deg,#6249a0,#ed9b9c 55%,#f4c78d); }
+    .tile:nth-child(3)::before { background:radial-gradient(circle at 70% 25%,#b8ffec 0 8%,transparent 9%),radial-gradient(ellipse at 20% 100%,#5cddbd 0,transparent 48%),linear-gradient(145deg,#154d69,#247f8b 55%,#1b315e); }
+    .tile span { font-size:1rem; font-weight:650; text-shadow:0 2px 14px #07091dcc; }
+    @keyframes rise { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    @media (max-width:640px) { .gallery { grid-template-columns:1fr; } .tile { min-height:150px; } nav { left:1rem; right:1rem; justify-content:center; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html" aria-current="page">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <main>
+    <p class="eyebrow">A few moments in color</p>
+    <h1>Little <span>wonders.</span></h1>
+    <p class="message">A tiny collection of dreamy scenes, made from gradients, light, and a bit of imagination.</p>
+    <section class="gallery" aria-label="Abstract artwork gallery">
+      <article class="tile"><span>01 · Starlit skies</span></article>
+      <article class="tile"><span>02 · Golden hour</span></article>
+      <article class="tile"><span>03 · Quiet waters</span></article>
+    </section>
+  </main>
+</body>
+</html>
